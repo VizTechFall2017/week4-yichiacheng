@@ -4,6 +4,7 @@ var svg = d3.select('svg').append('g').attr('transform','translate(100,100)');;
 
 //set up variables to hold two versions of the data, one for each year
 var data2016;
+var data2017;
 
 //set up a tracker variable to watch the button click state
 var clicked = true;
@@ -24,12 +25,15 @@ svg.append("g")
     .call(d3.axisLeft(scaleY));
 
 //import the data from the .csv file
-d3.csv('./bbrentrevise.csv', function(dataIn){
+d3.csv('./bbrent2017.csv', function(dataIn){
 
 
     //save the objects from the .csv with year = 2016
     data2016 = dataIn.filter(function(d){
         return d.year == 2016;
+    });
+    data2017 = dataIn.filter(function(d){
+        return d.year == 2017;
     });
 
 
@@ -84,26 +88,8 @@ function drawPoints(pointData){
             return d.fill;
         });
 }
-svg.append("svg:title")
-    .text(function(d) { return d.value; })
-var tooltip = d3.select("body")
-    .append("div")
-    .style("position", "absolute")
-    .style("z-index", "10")
-    .style("visibility", "hidden")
-    .style("background", "#000")
-    .text("a simple tooltip");
 
-d3.select("body")
-    .selectAll("div")
-    .data(data2016)
-    .enter()
-    .append("div")
-    .style("width", function(d) { return x(d) + "px"; })
-    .text(function(d) { return d; })
-    .on("mouseover", function(d){tooltip.neighborhood(d); return tooltip.style("visibility", "visible");})
-    .on("mousemove", function(){return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
-    .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+
 
 //this function runs when the HTML button is clicked.
 function buttonClicked(){
