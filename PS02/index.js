@@ -1,26 +1,30 @@
+
+
 var svg = d3.select('svg').append('g').attr('transform','translate(100,100)');;
 
 //set up variables to hold two versions of the data, one for each year
 var data2016;
-var data2017;
 
 //set up a tracker variable to watch the button click state
 var clicked = true;
 
 //set up scales to position circles using the data
-var scaleX = d3.scaleLinear().domain([0,400]).range([0, 600]);
-var scaleY = d3.scaleLinear().domain([0,400]).range([400, 0]);  //remember that 0,0 is at the top of the screen! 300 is the lowest value on the y axis
+var scaleX = d3.scaleLinear().domain([0,1400]).range([0, 600]);
+var scaleY = d3.scaleLinear().domain([0,4000]).range([400, 0]);  //remember that 0,0 is at the top of the screen! 300 is the lowest value on the y axis
 
 // Add the x Axis
+
 svg.append("g")
     .attr('transform','translate(0,400)')  //move the x axis from the top of the y axis to the bottom
     .call(d3.axisBottom(scaleX));
+
+
 
 svg.append("g")
     .call(d3.axisLeft(scaleY));
 
 //import the data from the .csv file
-d3.csv('./data.csv', function(dataIn){
+d3.csv('./bbrentrevise.csv', function(dataIn){
 
 
     //save the objects from the .csv with year = 2016
@@ -28,22 +32,18 @@ d3.csv('./data.csv', function(dataIn){
         return d.year == 2016;
     });
 
-    //save the objects from the .csv with year = 2017
-    data2017 = dataIn.filter(function(d){
-        return d.year == 2017;
-    });
 
     svg.append('text')
-        .text('My updating chart')
+        .text(' 2017 Boston Rent/Population Relationship')
         .attr('transform','translate(300, -20)')
         .style('text-anchor','middle');
 
     svg.append('text')
-        .text('some x axis value')
+        .text('Population (hundred people)')
         .attr('transform','translate(260, 440)');
 
     svg.append('text')
-        .text('some y axis value')
+        .text('1 Bedroom Rent)')
         .attr('transform', 'translate(-50,250)rotate(270)');
 
     //bind the data to the d3 selection, but don't draw it yet
@@ -51,12 +51,16 @@ d3.csv('./data.csv', function(dataIn){
         .data(data2016)
         .enter()
         .append('circle')
-        .attr('class','dataPoints');
+        .attr('class','dataPoints')
+        .style('fill-opacity', '0.8');
+
 
     //call the drawPoints function below, and hand it the data2016 variable with the 2016 object array in it
     drawPoints(data2016);
 
 });
+
+
 
 //this function draws the actual data points as circles. It's split from the enter() command because we want to run it many times
 //without adding more circles each time.
@@ -80,6 +84,26 @@ function drawPoints(pointData){
             return d.fill;
         });
 }
+svg.append("svg:title")
+    .text(function(d) { return d.value; })
+var tooltip = d3.select("body")
+    .append("div")
+    .style("position", "absolute")
+    .style("z-index", "10")
+    .style("visibility", "hidden")
+    .style("background", "#000")
+    .text("a simple tooltip");
+
+d3.select("body")
+    .selectAll("div")
+    .data(data2016)
+    .enter()
+    .append("div")
+    .style("width", function(d) { return x(d) + "px"; })
+    .text(function(d) { return d; })
+    .on("mouseover", function(d){tooltip.neighborhood(d); return tooltip.style("visibility", "visible");})
+    .on("mousemove", function(){return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
+    .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
 
 //this function runs when the HTML button is clicked.
 function buttonClicked(){
@@ -97,11 +121,7 @@ function buttonClicked(){
 
 }
 
-/*
-window.setInterval(
-    function ()
-    {
-        buttonClicked();
 
-    }, 1000);
-*/
+
+
+
