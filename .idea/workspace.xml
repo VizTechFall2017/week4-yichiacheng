@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5b4a480-38a6-43ce-9639-617f3e53ccdc" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/PS02/bbrentrevise.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/PS02/brentcolor.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/PS02/rentdata2017.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/PS02/textbrent.csv" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PS02/index.js" afterPath="$PROJECT_DIR$/PS02/index.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PS01/boston1bed.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PS01/boston1bedupdate.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PS01/d3.v4.2.6.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PS01/data01.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PS01/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PS01/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PS01/style.css" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -123,11 +125,6 @@
             <path>
               <item name="week4-yichiacheng" type="b2602c69:ProjectViewProjectNode" />
               <item name="week4-yichiacheng" type="462c0819:PsiDirectoryNode" />
-              <item name="PS01" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="week4-yichiacheng" type="b2602c69:ProjectViewProjectNode" />
-              <item name="week4-yichiacheng" type="462c0819:PsiDirectoryNode" />
               <item name="PS02" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -172,12 +169,12 @@
       <workItem from="1507325005514" duration="1704000" />
       <workItem from="1507564285462" duration="480000" />
       <workItem from="1507565000913" duration="190000" />
-      <workItem from="1507565444547" duration="8117000" />
+      <workItem from="1507565444547" duration="8354000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20575000" />
+    <option name="totallyTimeSpent" value="20812000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="709" extended-state="0" />
