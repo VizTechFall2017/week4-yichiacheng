@@ -25,7 +25,7 @@ svg.append("g")
     .call(d3.axisLeft(scaleY));
 
 //import the data from the .csv file
-d3.csv('./brent2017.csv', function(dataIn){
+d3.csv('./bbrent2017.csv', function(dataIn){
 
 
     //save the objects from the .csv with year = 2016
